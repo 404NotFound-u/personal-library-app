@@ -1,5 +1,4 @@
-# personal-library-app
-Веб-приложение для управления личной библиотекой книг
+
 ---
 # 📚 Personal Library App
 
