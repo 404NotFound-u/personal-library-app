@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block title %}{{ book.title }} - Личная библиотека{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="book-detail">
+        <a href="{{ url_for('index') }}" class="btn-back">← Назад к списку</a>
+        
+        <div class="book-info">
+            <h1>{{ book.title }}</h1>
+            <p class="author"><strong>Автор:</strong> {{ book.author }}</p>
+            <p class="year"><strong>Год издания:</strong> {{ book.year }}</p>
+            <p class="status">
+                <strong>Статус:</strong> 
+                <span class="status-badge status-{{ book.status }}">
+                    {{ book.status|capitalize }}
+                </span>
+            </p>
+        </div>
+        
+        <div class="book-actions">
+            <div class="status-buttons">
+                <form action="{{ url_for('update_status', book_id=book.id, new_status='планирую') }}" method="POST" style="display:inline;">
+                    <button type="submit" class="btn-status btn-planning {% if book.status == 'планирую' %}active{% endif %}">
+                        Планирую
+                    </button>
+                </form>
+                
+                <form action="{{ url_for('update_status', book_id=book.id, new_status='читаю') }}" method="POST" style="display:inline;">
+                    <button type="submit" class="btn-status btn-reading {% if book.status == 'читаю' %}active{% endif %}">
+                        Читаю
+                    </button>
+                </form>
+                
+                <form action="{{ url_for('update_status', book_id=book.id, new_status='прочитано') }}" method="POST" style="display:inline;">
+                    <button type="submit" class="btn-status btn-read {% if book.status == 'прочитано' %}active{% endif %}">
+                        Прочитано
+                    </button>
+                </form>
+            </div>
+            
+            <div class="action-buttons">
+                <a href="{{ url_for('edit_book', book_id=book.id) }}" class="btn-edit">✏️ Редактировать</a>
+                
+                <form action="{{ url_for('delete_book', book_id=book.id) }}" method="POST" style="display:inline;" 
+                      onsubmit="return confirm('Вы уверены, что хотите удалить эту книгу?');">
+                    <button type="submit" class="btn-delete">🗑️ Удалить</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

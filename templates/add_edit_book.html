@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block title %}{{ 'Редактировать' if action == 'edit' else 'Добавить' }} книгу{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="form-container">
+        <a href="{{ url_for('index') if action == 'add' else url_for('book_detail', book_id=book.id) }}" class="btn-back">
+            ← Назад
+        </a>
+        
+        <h1>{{ 'Редактировать книгу' if action == 'edit' else 'Добавить новую книгу' }}</h1>
+        
+        <form method="POST" class="book-form">
+            <div class="form-group">
+                <label for="title">Название книги *</label>
+                <input 
+                    type="text" 
+                    id="title" 
+                    name="title" 
+                    value="{{ book.title if book else '' }}"
+                    required
+                    placeholder="Введите название книги"
+                >
+            </div>
+            
+            <div class="form-group">
+                <label for="author">Автор книги *</label>
+                <input 
+                    type="text" 
+                    id="author" 
+                    name="author" 
+                    value="{{ book.author if book else '' }}"
+                    required
+                    placeholder="Введите имя автора"
+                >
+            </div>
+            
+            <div class="form-group">
+                <label for="year">Год издания</label>
+                <input 
+                    type="number" 
+                    id="year" 
+                    name="year" 
+                    value="{{ book.year if book else '' }}"
+                    min="1000"
+                    max="2099"
+                    placeholder="Например: 2020"
+                >
+            </div>
+            
+            <div class="form-group">
+                <label for="status">Статус</label>
+                <select id="status" name="status">
+                    <option value="планирую" {% if book and book.status == 'планирую' %}selected{% endif %}>
+                        Планирую
+                    </option>
+                    <option value="читаю" {% if book and book.status == 'читаю' %}selected{% endif %}>
+                        Читаю
+                    </option>
+                    <option value="прочитано" {% if book and book.status == 'прочитано' %}selected{% endif %}>
+                        Прочитано
+                    </option>
+                </select>
+            </div>
+            
+            <div class="form-actions">
+                <button type="submit" class="btn-save">
+                    {{ 'Сохранить изменения' if action == 'edit' else 'Добавить книгу' }}
+                </button>
+                <a href="{{ url_for('index') }}" class="btn-cancel">Отмена</a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

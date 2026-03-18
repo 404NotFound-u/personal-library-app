@@ -1,0 +1,421 @@
+/* Основные стили приложения Personal Library */
+
+/* Сброс стилей */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: #1a1a2e;
+    color: #eee;
+    line-height: 1.6;
+}
+
+/* Шапка */
+header {
+    background-color: #16213e;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #e94560;
+    text-decoration: none;
+}
+
+.btn-add {
+    background-color: #0f3460;
+    color: #e94560;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.btn-add:hover {
+    background-color: #e94560;
+    color: #fff;
+}
+
+/* Основной контент */
+main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+}
+
+.container {
+    width: 100%;
+}
+
+/* Поиск */
+.search-bar {
+    margin-bottom: 2rem;
+}
+
+.search-bar form {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.search-input {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    border: 2px solid #0f3460;
+    border-radius: 25px;
+    background-color: #16213e;
+    color: #eee;
+    font-size: 1rem;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: #e94560;
+}
+
+.btn-search, .btn-clear {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-search {
+    background-color: #e94560;
+    color: #fff;
+}
+
+.btn-clear {
+    background-color: #0f3460;
+    color: #eee;
+}
+
+/* Сетка книг */
+.books-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.book-card {
+    background-color: #16213e;
+    border: 2px solid #0f3460;
+    border-radius: 10px;
+    padding: 1.5rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.book-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(233, 69, 96, 0.3);
+}
+
+.book-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.book-card h3 {
+    color: #e94560;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.book-card .author {
+    color: #aaa;
+    margin-bottom: 0.25rem;
+}
+
+.book-card .year {
+    color: #888;
+    font-size: 0.9rem;
+}
+
+/* Нет книг */
+.no-books {
+    text-align: center;
+    padding: 3rem;
+    grid-column: 1 / -1;
+}
+
+.no-books p {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #888;
+}
+
+.btn-add-first {
+    display: inline-block;
+    background-color: #e94560;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Детали книги */
+.book-detail {
+    background-color: #16213e;
+    border: 2px solid #0f3460;
+    border-radius: 10px;
+    padding: 2rem;
+}
+
+.btn-back {
+    display: inline-block;
+    color: #e94560;
+    text-decoration: none;
+    margin-bottom: 1.5rem;
+    font-weight: bold;
+}
+
+.btn-back:hover {
+    text-decoration: underline;
+}
+
+.book-info h1 {
+    color: #e94560;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.book-info p {
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.book-info strong {
+    color: #0f3460;
+}
+
+/* Статусы */
+.status-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.status-планирую {
+    background-color: #0f3460;
+    color: #4fc3f7;
+}
+
+.status-читаю {
+    background-color: #2e7d32;
+    color: #81c784;
+}
+
+.status-прочитано {
+    background-color: #e94560;
+    color: #fff;
+}
+
+/* Кнопки действий */
+.book-actions {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 2px solid #0f3460;
+}
+
+.status-buttons {
+    margin-bottom: 1.5rem;
+}
+
+.btn-status {
+    padding: 0.5rem 1rem;
+    border: 2px solid;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    background: transparent;
+    margin-right: 0.5rem;
+    transition: all 0.3s;
+}
+
+.btn-planning {
+    border-color: #4fc3f7;
+    color: #4fc3f7;
+}
+
+.btn-planning:hover, .btn-planning.active {
+    background-color: #4fc3f7;
+    color: #16213e;
+}
+
+.btn-reading {
+    border-color: #81c784;
+    color: #81c784;
+}
+
+.btn-reading:hover, .btn-reading.active {
+    background-color: #81c784;
+    color: #16213e;
+}
+
+.btn-read {
+    border-color: #e94560;
+    color: #e94560;
+}
+
+.btn-read:hover, .btn-read.active {
+    background-color: #e94560;
+    color: #fff;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn-edit, .btn-delete, .btn-save, .btn-cancel {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1rem;
+}
+
+.btn-edit {
+    background-color: #0f3460;
+    color: #4fc3f7;
+}
+
+.btn-delete {
+    background-color: #c62828;
+    color: #fff;
+}
+
+.btn-save {
+    background-color: #e94560;
+    color: #fff;
+}
+
+.btn-cancel {
+    background-color: #555;
+    color: #eee;
+}
+
+/* Формы */
+.form-container {
+    background-color: #16213e;
+    border: 2px solid #0f3460;
+    border-radius: 10px;
+    padding: 2rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-container h1 {
+    color: #e94560;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #aaa;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid #0f3460;
+    border-radius: 5px;
+    background-color: #1a1a2e;
+    color: #eee;
+    font-size: 1rem;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #e94560;
+}
+
+.form-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+/* Flash сообщения */
+.flash-messages {
+    margin-bottom: 1rem;
+}
+
+.flash {
+    padding: 1rem;
+    border-radius: 5px;
+    margin-bottom: 0.5rem;
+}
+
+.flash.success {
+    background-color: #2e7d32;
+    color: #fff;
+}
+
+.flash.error {
+    background-color: #c62828;
+    color: #fff;
+}
+
+/* Подвал */
+footer {
+    text-align: center;
+    padding: 2rem;
+    margin-top: 3rem;
+    color: #666;
+    border-top: 1px solid #0f3460;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    header nav {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .books-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .search-bar form {
+        flex-direction: column;
+    }
+    
+    .action-buttons {
+        flex-direction: column;
+    }
+}

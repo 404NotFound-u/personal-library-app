@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Список книг - Личная библиотека{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="search-bar">
+        <form action="{{ url_for('index') }}" method="GET">
+            <input 
+                type="text" 
+                name="search" 
+                placeholder=" Поиск по названию или автору..."
+                value="{{ search }}"
+                class="search-input"
+            >
+            <button type="submit" class="btn-search">Найти</button>
+            {% if search %}
+                <a href="{{ url_for('index') }}" class="btn-clear">Сбросить</a>
+            {% endif %}
+        </form>
+    </div>
+    
+    <div class="books-grid">
+        {% if books %}
+            {% for book in books %}
+            <div class="book-card">
+                <a href="{{ url_for('book_detail', book_id=book.id) }}" class="book-link">
+                    <h3>{{ book.title }}</h3>
+                    <p class="author">{{ book.author }}</p>
+                    <p class="year">{{ book.year }}</p>
+                </a>
+            </div>
+            {% endfor %}
+        {% else %}
+            <div class="no-books">
+                <p>📭 Книг пока нет</p>
+                <a href="{{ url_for('add_book') }}" class="btn-add-first">Добавить первую книгу</a>
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
