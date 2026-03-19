@@ -1,0 +1,43 @@
+# Виртуальное окружение
+venv/
+env/
+ENV/
+
+# Git
+.git/
+.gitignore
+
+# Документация
+docs/
+*.md
+!README.md
+
+# Сборка
+dist/
+build/
+*.egg-info/
+
+# Python кэш
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Логи
+*.log
+
+# База данных
+*.db
+*.sqlite
+*.sqlite3
+
+# Тесты
+.pytest_cache/
+.coverage
+htmlcov/
