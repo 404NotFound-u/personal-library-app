@@ -88,20 +88,3 @@ MIT License
 
 ---
 
-### **3. Система сборки (п. 2 Части 2)**
-
-Согласно методичке, для Python-проекта необходимо:
-- ✅ Файл `requirements.txt` со списком зависимостей
-- ✅ Подключить `setuptools` для сборки пакета
-
-#### 3.1 Файл requirements.txt
-
-```txt
-Flask==3.0.0
-Flask-SQLAlchemy==3.1.1
-python-dotenv==1.0.0
-Werkzeug==3.0.1
-setuptools>=65.0.0
-sphinx>=7.0.0
-sphinx-rtd-theme>=2.0.0
-```
