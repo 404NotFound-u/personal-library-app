@@ -1,23 +1,23 @@
 #!/bin/bash
 
 # Скрипт запуска приложения Personal Library
-# Совместим с Linux-средами
+# Linux-среды - есть совместимость
 
 echo "🚀 Запуск Personal Library Application..."
 
-# Проверка наличия Python
+# Проверка есть ли Python
 if ! command -v python3 &> /dev/null; then
     echo "❌ Python3 не найден. Установите Python 3.8+"
     exit 1
 fi
 
-# Создание виртуального окружения если его нет
+# Создание вир окр если его нет
 if [ ! -d "venv" ]; then
     echo "📦 Создание виртуального окружения..."
     python3 -m venv venv
 fi
 
-# Активация виртуального окружения
+# Активация вир окр
 echo "🔧 Активация виртуального окружения..."
 source venv/bin/activate
 
